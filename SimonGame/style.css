@@ -1,0 +1,73 @@
+html, body{
+	height: 100%;
+  background: rgba(255, 124, 63,0.7) !important;
+}
+
+body{
+	margin: 0px; 
+	padding: 0px;
+}
+
+.gameContainer{
+  text-align: center;
+  width:100vw;
+  padding-top: 10%;
+}
+
+.circleContainer{
+  width: 340px;
+  height: 340px;
+  background-color: #1e1e1e;
+  margin:auto;
+  border-radius: 30%;
+}
+
+.slice{
+  width:160px;
+  height: 160px;
+  background-color:red;
+  display: inline-block;
+}
+
+#greenSlice{
+  background:rgba(35, 188, 56,0.6);
+  margin-top: 7px;
+  border-top-left-radius: 60%;
+}
+#redSlice{
+  background:rgba(188, 35, 35,0.6);
+  margin-top: 7px;
+  border-top-right-radius: 60%;
+}
+
+#yellowSlice{
+  background:rgba(219, 216, 39,0.6);
+  border-bottom-right-radius: 60%;
+}
+
+#blueSlice{
+  background:rgba(35, 88, 188,0.6);
+  border-bottom-left-radius: 60%;
+}
+
+
+.active{
+	opacity: 0.5;
+}
+
+.enemyGreen{
+	background-color:#07ff29 !important;
+}
+.enemyRed{
+	background-color:#f21313 !important;
+}
+.enemyYellow{
+	background-color:#fffa0a !important;
+}
+.enemyBlue{
+	background-color:#0c5ffc !important;
+}
+
+.audio{
+	display: none;
+}
