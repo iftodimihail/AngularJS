@@ -1,6 +1,6 @@
 html, body{
 	height: 100%;
-  background: rgba(255, 124, 63,0.7) !important;
+  background: #f28e63 !important;
 }
 
 body{
@@ -11,7 +11,7 @@ body{
 .gameContainer{
   text-align: center;
   width:100vw;
-  padding-top: 10%;
+  padding-top: 6%;
 }
 
 .circleContainer{
@@ -30,26 +30,25 @@ body{
 }
 
 #greenSlice{
-  background:rgba(35, 188, 56,0.6);
+  background:rgba(35, 188, 56,0.75);
   margin-top: 7px;
   border-top-left-radius: 60%;
 }
 #redSlice{
-  background:rgba(188, 35, 35,0.6);
+  background:rgba(188, 35, 35,0.75);
   margin-top: 7px;
   border-top-right-radius: 60%;
 }
 
 #yellowSlice{
-  background:rgba(219, 216, 39,0.6);
+  background:rgba(219, 216, 39,0.75);
   border-bottom-right-radius: 60%;
 }
 
 #blueSlice{
-  background:rgba(35, 88, 188,0.6);
+  background:rgba(35, 88, 188,0.75);
   border-bottom-left-radius: 60%;
 }
-
 
 .active{
 	opacity: 0.5;
@@ -65,9 +64,19 @@ body{
 	background-color:#fffa0a !important;
 }
 .enemyBlue{
-	background-color:#0c5ffc !important;
+	background-color:#219aff !important;
 }
 
-.audio{
-	display: none;
+.btn{
+  width: 4.7em;
+  height: 2.2em;
+  margin-top:10px;
+  font-size: 1.3em;
+  font-family: 'Raleway', sans-serif;
+}
+
+.score{
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  font-family: 'Raleway', sans-serif;
 }

@@ -5,10 +5,6 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge"> <!-- † -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,19 +13,15 @@
 </head>
 <body ng-app="SimonGame">
 	<div ng-controller="gameController" class="gameContainer">
+    <div class="score">Score: {{ score }}</div>
 		<div class="circleContainer">
 			<div class="slice" id="greenSlice" ng-click="pressed(1)"></div>
 			<div class="slice" id="redSlice" ng-click="pressed(2)"></div>
 			<div class="slice" id="blueSlice" ng-click="pressed(4)"></div>
 			<div class="slice" id="yellowSlice" ng-click="pressed(3)"></div>
 		</div>
-		<button class="btn btn-primary" ng-click="startGame()">Start</button>
-		<div class="score">{{ score }}</div>
+		<button class="btn btn-primary" ng-click="startGame()">START</button>
 	</div>
-	<audio src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" id="rs"></audio>
-    <audio src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" id="bs"></audio>
-    <audio src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" id="ys"></audio>
-    <audio src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" id="gs"></audio>
 	<script src="app.js"></script>
 </body>
 </html>

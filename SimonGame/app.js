@@ -9,24 +9,18 @@
 		var move = 0; //counter for enemy's moves
 		$scope.score = 0; //game score
 		var startFlag=false; //flag to see if the game started
-		/*var greenSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
-		var redSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
-		var yellowSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
-		var blueSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");*/
-		
-		function activateSound(){
-			$("#gs").trigger('play');
-			$("#rs").trigger('play');
-			$("#ys").trigger('play');
-			$("#bs").trigger('play');
-		}
-		
+		var inProgress=false; //flag to see if enemy moves are in progress
+		// var greenSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
+		// var redSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
+		// var yellowSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
+		// var blueSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
     
 		$scope.startGame = function(){
 			reset();
 			enemyTurn();
 			$scope.score = 0;
 			startFlag = true;
+			$(".btn").html("RESET");
 		};
 		
 		function activateButton(btn){
@@ -35,41 +29,49 @@
 				case 1:
 					setTimeout(function(){$("#greenSlice").addClass("enemyGreen");},500);
 					setTimeout(function(){$("#greenSlice").removeClass("enemyGreen");},1000);
-					// $("#gs").trigger('play');
-					// setTimeout(function(){
-						// $("#gs").trigger('pause');
-					    // $("#gs").prop("currentTime",0);
-					// },700);
-					break;
+         			setTimeout(function(){
+						new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3').play();
+					},450);
+          			break;
+ 
 				case 2:
 					setTimeout(function(){$("#redSlice").addClass("enemyRed");},500);
 					setTimeout(function(){$("#redSlice").removeClass("enemyRed");},1000);
-					//document.getElementById('rs').play();
+					setTimeout(function(){
+						new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3').play();
+					},450);
 					break;
+					
 				case 3:
-					//yellowSound.currentTime = -0.1;
 					setTimeout(function(){$("#yellowSlice").addClass("enemyYellow");},500);
 					setTimeout(function(){$("#yellowSlice").removeClass("enemyYellow");},1000);
-					//yellowSound.play();
+					setTimeout(function(){
+						new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3').play();
+					},450);
 					break;
+					
 				case 4:
-					//blueSound.currentTime = 0;
 					setTimeout(function(){$("#blueSlice").addClass("enemyBlue");},500);
 					setTimeout(function(){$("#blueSlice").removeClass("enemyBlue");},1000);
-					//blueSound.play();
+					setTimeout(function(){
+						new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3').play();
+					},450)
 					break;
+				default: break;
 			}
 		}
 		
 		//toggle buttons for each enemy moves
 		function toggle(){
-			//stopAudio();
 			activateButton(enemyMoves[move]);
 			if(move !== enemyMoves.length){
-				setTimeout(toggle,700);
+				setTimeout(toggle,800);
 				move++;
 			}
-			else move=0;
+			else {
+					move=0;
+					inProgress = false;
+				}
 		}
 		
 		
@@ -78,39 +80,48 @@
 			var btn = Math.floor((Math.random()*4)+1);
 			enemyMoves.push(btn);
 			toggle();
+			inProgress = true;
 		}
 		
 		
 		$scope.pressed = function(btn){
-			if(startFlag){		
+			if(startFlag && !inProgress){		
 				// 1:green  2:red  3:yellow  4:blue
 				switch(btn){
 					case 1:
 						playerMoves.push(1);
 						console.log(playerMoves);
+						new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3').play();
 						$("#greenSlice").addClass("active");
 						setTimeout(function(){$("#greenSlice").removeClass("active");},200);
 						checkMove();
 						break;
+						
 					case 2:
 						playerMoves.push(2);
 						console.log(playerMoves);
+						new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3').play();
 						$("#redSlice").addClass("active");
 						setTimeout(function(){$("#redSlice").removeClass("active");},200);
 						checkMove();
 						break;
+						
 					case 3:
 						playerMoves.push(3);
+						new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3').play();
 						$("#yellowSlice").addClass("active");
 						setTimeout(function(){$("#yellowSlice").removeClass("active");},200);
 						checkMove();
 						break;
+						
 					case 4:
 						playerMoves.push(4);
+						new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3').play();
 						$("#blueSlice").addClass("active");
 						setTimeout(function(){$("#blueSlice").removeClass("active");},200);
 						checkMove();
 						break;
+						
 					default: break;
 				}
 			}
